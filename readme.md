@@ -3,7 +3,7 @@
 __Terminal__ :  
    ``` composer create-project symfony/website-skeleton my_project_name "4.4.*"```
 
-## Procédure d'installation
+## Etapes de développement:  
 ### clone github procédure  
 A faire
 ### database
@@ -25,4 +25,12 @@ La relation se fera à partir de l'entité Todo, avec une propriété _category_
 
 1. Création du fichier de migration (code SQL) ```bin/console make:migration```
 2. Executer la migration ```bin/console doctrine:migration:migrate```
-    --> crée les tables Todo et Category dans mySql
+    --> crée les tables Todo et Category dans mySql  
+
+## Git commit
+1. git add
+2. git commit -m "Todo application install et config DB"
+
+#fixtures
+tester insertion de données dans les tables.  
+Installer d'abord : ```composer require orm-fixtures --dev```

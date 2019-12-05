@@ -42,10 +42,12 @@ class Todo
     private $todoFor;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="todos")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Category")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $category_id;
+    private $category;
+
+ 
 
     public function getId(): ?int
     {
@@ -112,15 +114,16 @@ class Todo
         return $this;
     }
 
-    public function getCategoryId(): ?Category
+    public function getCategory(): ?Category
     {
-        return $this->category_id;
+        return $this->category;
     }
 
-    public function setCategoryId(?Category $category_id): self
+    public function setCategory(?Category $category): self
     {
-        $this->category_id = $category_id;
+        $this->category = $category;
 
         return $this;
     }
+
 }

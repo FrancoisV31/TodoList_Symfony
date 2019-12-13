@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\TodoRepository")
@@ -18,6 +19,8 @@ class Todo
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="titre est vide")
+     * @Assert\Length(min=5, minMessage="Minimum 5 caractères")
      */
     private $title;
 
@@ -47,7 +50,12 @@ class Todo
      */
     private $category;
 
- 
+    function __construct()
+    {
+      $now = new \DateTime('now', new \DateTimeZone('Europe/Paris'));
+      $this-> setCreatedAt($now);
+      $this-> setUpdatedAt($now);
+    }
 
     public function getId(): ?int
     {
